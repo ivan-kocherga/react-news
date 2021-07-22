@@ -11,3 +11,7 @@
 .main__title h1{
     margin-bottom: 10px;
 }
+
+.slider .news__elem{
+    margin: 0 20px;
+}

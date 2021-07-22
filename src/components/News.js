@@ -40,13 +40,6 @@ export default function News() {
                 console.log(request)
                 let data = newsApi.info.lastUpdate.data.articles
                 setNews(data)
-
-                document.querySelectorAll('img').forEach(elem => {
-                    if(Boolean(elem.src) === false){
-                        elem.style.display = 'none'
-                    }
-                })
-
             }else {
                 newsApi.getStartNews().then(async (res) => {
                     let data = res.data.articles
@@ -58,11 +51,19 @@ export default function News() {
                     setError(error)
                 })
             }
+            checkImg()
         }
     }, [])
 
     function imgError(name) {
         document.querySelector('.'+name).style.display = 'none'
+    }
+    function checkImg() {
+        document.querySelectorAll('img').forEach(elem => {
+            if(Boolean(elem.src) === false){
+                elem.style.display = 'none'
+            }
+        })
     }
 
     function detailWatchNewsElem(index) {
@@ -109,7 +110,7 @@ export default function News() {
                     {
                         news.length > 0 ? news.map((elem, index) => {
                                 return (
-                                    <div className='news__elem' key={index}>
+                                    <div className='news__elem slider-elem' key={index}>
                                         <img className={'img-'+ index} src={elem.urlToImage} onError={() => imgError('img-'+ index)}/>
                                         <h3 className='news__elem-title'>{elem.title}</h3>
                                         <p className='news__elem-description' dangerouslySetInnerHTML={{__html: elem.description}}/>
