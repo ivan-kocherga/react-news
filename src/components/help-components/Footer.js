@@ -42,7 +42,7 @@ export default function Footer() {
                         Политика конфиденциальности
                     </span>
                     <span className='footer__policity-madeBy'>
-                        Сделано TihonovDesign
+                        Сделано IvanDevTop
                     </span>
                 </div>
             </div>
