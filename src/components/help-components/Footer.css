@@ -1,0 +1,70 @@
+.footer{
+    margin-top: auto;
+    background-color: #333333;
+    color: #828282;
+}
+
+.footer-wrapper{
+    padding: 20px;
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer__info{
+    margin-bottom: 15px;
+}
+.footer__policity{
+    margin-top: 15px;
+}
+
+.footer__info{
+    display: flex;
+}
+
+.footer__info-mapOfSait{
+    margin-right: 80px;
+}
+
+.contact__choice span{
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.contact__choice-phone, .contact__choice-email{
+    margin: 20px 0;
+    color: white;
+}
+
+.contact__name, .mapOfSait__name{
+    font-size: 14px;
+}
+
+.mapOfSait__choice{
+    display: flex;
+    margin-top: 20px;
+}
+
+.mapOfSait__choice span{
+    cursor: pointer;
+}
+
+.mapOfSait__choice-main{
+    margin-right: 20px;
+}
+
+.footer__border{
+    border: solid 1px  #4F4F4F;
+}
+
+.footer__policity{
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer__policity span{
+    cursor: pointer;
+}
+
