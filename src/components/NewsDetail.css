@@ -1,6 +1,6 @@
 .newsDetail{
     display: flex;
-    padding: 50px 0;
+    padding: 30px 0 50px;
 }
 
 .newsDetail-wrapper{
@@ -34,6 +34,7 @@
     border-radius: 10px;
     z-index: 100;
     box-shadow: 0px -43px 58px 63px rgba(0, 0, 0 , 0.42) inset;
+    height: 99%;
 }
 
 .newsDetail__title-title{
@@ -73,4 +74,19 @@
     color: green;
     text-decoration: underline;
     margin-left: 10px;
+}
+
+.back{
+    margin-bottom: 25px;
+}
+
+.back a{
+    color: green;
+    text-decoration: underline;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.news__title-search button:nth-child(2){
+    margin-right: 10px;
 }

@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const apiKey = '4f8f9ffed2bf47b896d4d37e2db042f2'
+const apiKey = 'c0cd531d511648539f9aa54438e2a628'
+let country = localStorage.getItem('user') !== null ? JSON.parse(localStorage.getItem('user')).country : 'ua'
 
 let info = {
     lastUpdate: null,
@@ -12,7 +13,7 @@ function getStartNews() {
     info.previousValues = info.lastUpdate
     return new Promise((resolve, reject) => {
         console.log('server...')
-        axios.get('https://newsapi.org/v2/top-headlines?country=ua&apiKey=' + apiKey)
+        axios.get(`https://newsapi.org/v2/top-headlines?country=${country}&apiKey=${apiKey}`)
             .then(res => {
                 info.lastUpdate = res
                 info.history.push(res)
@@ -27,7 +28,7 @@ function getSearchNews(newsName) {
     info.previousValues = info.lastUpdate
     return new Promise((resolve, reject) => {
         console.log('server...')
-        axios.get(`https://newsapi.org/v2/everything?q=${newsName}&from=2021-06-21&sortBy=publishedAt&apiKey=` + apiKey)
+        axios.get(`https://newsapi.org/v2/everything?q=${newsName}&sortBy=popularity&apiKey=${apiKey}`)
             .then(res => {
                 info.lastUpdate = res
                 info.history.push(res)
@@ -38,7 +39,33 @@ function getSearchNews(newsName) {
     })
 }
 
-export default {getStartNews, getSearchNews, info}
+function getNewsCountry(getCountry) {
+    info.previousValues = info.lastUpdate
+    return new Promise((resolve, reject) => {
+        console.log('server...')
+        axios.get(`https://newsapi.org/v2/top-headlines?country=${getCountry}&apiKey=${apiKey}`)
+            .then(res => {
+                info.lastUpdate = res
+                info.history.push(res)
+                resolve(res)
+            }).catch(err => {
+            reject(err.response.status)
+        })
+    })
+}
+
+function setCountry(getCountry) {
+    country = getCountry
+}
+
+export default {
+    getStartNews,
+    getSearchNews,
+    setCountry,
+    getNewsCountry,
+    info,
+    country
+}
 /*
     https://newsapi.org/v2/everything?q=tesla&from=2021-06-20&sortBy=publishedAt&apiKey=b4a8265f2fcf4b6f8d128bc3e3806969
 

@@ -22,6 +22,10 @@
     border-radius: 10px;
 }
 
+.slider__elem-author{
+    margin-top: 10px;
+}
+
 .news__elem:hover{
     box-shadow: 0px 16px 25px 19px rgba(34, 60, 80, 0.12);
 }
@@ -89,4 +93,12 @@
     padding: 5px;
     margin-right: 20px;
     width: 255px;
+}
+
+.load-error p{
+    text-align: center;
+}
+
+.load p{
+    text-align: center;
 }

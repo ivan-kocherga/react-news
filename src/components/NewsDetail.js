@@ -1,86 +1,105 @@
 import './NewsDetail.css'
-import React, {useEffect, useRef, useState} from 'react'
+
+import React, {useEffect, useState} from 'react'
+import { useParams, Redirect } from 'react-router-dom';
+
 import newsApi from '../api/NewsAPI'
-import {
-    useParams,
-    Redirect
-} from "react-router-dom";
+import helpFunc from '../api/helpFunc';
 
 export default function NewsDetail() {
     let [data, setData] = useState([])
     let {id} = useParams()
     let [imgErrorHandler, setImgErrorHandler] = useState(false)
+    let [redirect, setRedirect] = useState(false)
+    let [error, setError] = useState(false)
+    let [load, setLoad] = useState(true)
+    let urlParams = helpFunc.getQueryStringParams(document.location.search)
 
     useEffect( () => {
         if (newsApi.info.lastUpdate !== null) {
+            setLoad(false)
+            if(Boolean(newsApi.info.lastUpdate.data.articles[id]) === false){
+                setError(true)
+                return void 0
+            }
             let data_ = newsApi.info.lastUpdate.data.articles[id]
-            data_['dateBeauty'] = dateBeautyFunc(data_.publishedAt)
+            data_['dateBeauty'] = helpFunc.dateBeautyFunc(data_.publishedAt)
             setData(data_)
         } else {
-            newsApi.getStartNews().then(res => {
-                setData(res.data.articles[id])
-            })
+            if(urlParams.lastQuestion){
+                newsApi.getSearchNews(urlParams).then(res => {
+                    setLoad(false)
+                    if(Boolean(res.data.articles[id]) === false){
+                        setError(true)
+                        return void 0
+                    }
+                    setData(res.data.articles[id])
+                }).catch(() => {
+                    setError(true)
+                })
+            }else if(urlParams.county){
+                newsApi.getNewsCountry(urlParams.county).then(res => {
+                    setLoad(false)
+                    if(Boolean(res.data.articles[id]) === false){
+                        setError(true)
+                        return void 0
+                    }
+                    setData(res.data.articles[id])
+                }).catch(() => {
+                    setError(true)
+                    setLoad(false)
+                })
+            }
         }
     }, [])
 
-    function dateBeautyFunc(a) {
-        let date = new Date(a)
-
-        let hours = date.getHours()
-        let minutes = date.getMinutes()
-        let dd = date.getDate()
-        let mm = date.getMonth() + 1
-        let yyyy = date.getFullYear()
-        if (dd < 10) {
-            dd = '0' + dd
-        }
-        if (mm < 10) {
-            mm = '0' + mm
-        }
-        if (hours < 10) {
-            hours = '0' + hours
-        }
-        if (minutes < 10) {
-            minutes = '0' + minutes
-        }
-
-        let dateBeauty = `${hours}:${minutes} ${dd}.${mm}.${yyyy}`
-
-        return dateBeauty
+    function back() {
+        setRedirect(true)
     }
 
-    function imgError() {
+    function imgError(e) {
         setImgErrorHandler(true)
-        document.querySelector('.img').style.display = 'none'
+        e.target.style.display = 'none'
     }
 
     return (
         <div className='newsDetail'>
             <div className='newsDetail-wrapper'>
+                <div className='back'>
+                    <a onClick={() => back()}>Вернуться назад</a>
+                </div>
+                {
+                    !error && !load?
+                        <div>
 
-
-                {!imgErrorHandler ?
-                    <div className='img-shadow'>
-                        <img className='img' src={data.urlToImage} onError={() => imgError()}/>
-                        <h1 className='newsDetail__title-title'>{data.title}</h1>
-                    </div> :
-                    <h1 className='newsDetail__title-title2'>{data.title}</h1>
+                            {
+                                !imgErrorHandler ?
+                                    <div className='img-shadow'>
+                                        <img className='img' src={data.urlToImage} onError={(e) => imgError(e)}/>
+                                        <h1 className='newsDetail__title-title'>{data.title}</h1>
+                                    </div> :<h1 className='newsDetail__title-title2'>{data.title}</h1>
+                            }
+                            <div className='newsDetail__title'>
+                                <p className='newsDetail__title-author'>Автор: <span>{data.author ? data.author : 'Инкогнито'}</span>
+                                </p>
+                                <p className='newsDetail__title-date'>Дата: <span>{data.dateBeauty}</span></p>
+                            </div>
+                            <div className='content'>
+                                <p>
+                                    {data.description}
+                                </p>
+                                <p>
+                                    Источник: <a target='_blank' href={data.url}>Клик и вы там</a>
+                                </p>
+                            </div>
+                        </div>
+                        : load ? <p>Загрузка...</p>
+                        : <p>Кое что пошло не так. Возможно новость удалили(</p>
                 }
-
-                <div className='newsDetail__title'>
-                    <p className='newsDetail__title-author'>Автор: <span>{data.author ? data.author : 'Инкогнито'}</span>
-                    </p>
-                    <p className='newsDetail__title-date'>Дата: <span>{data.dateBeauty}</span></p>
-                </div>
-                <div className='content'>
-                    <p>
-                        {data.description}
-                    </p>
-                    <p>
-                        Источник: <a target='_blank' href={data.url}>Клик и вы там</a>
-                    </p>
-                </div>
             </div>
+            {
+                redirect ? <Redirect to={urlParams.lastQuestion ? `/news?request=${urlParams.lastQuestion}` : '/news'}/> : void 0
+            }
         </div>
     )
 }

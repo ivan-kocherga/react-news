@@ -9,17 +9,17 @@ export default function Modal(props) {
     }
     return(
         <React.Fragment>
-            <div className='modal'>
+            <div className='modal' onClick={() => props.closeModal()}>
                 <div className='modal__block'>
                     <p className='modal__block-text'>
                         Вы не авторизованы. Чтобы продолжыть вам следует войти в свой аккаунт.
                     </p>
                     <div className='modal__block-btnBlock' onClick={(e) => stop(e)}>
-                        <button onClick={() => props.closeModal()}>
-                            <Link to='/auth'>
+                        <Link to='/auth'>
+                            <button onClick={() => props.closeModal()}>
                                 Страница авторизации
-                            </Link>
-                        </button>
+                            </button>
+                        </Link>
                         <button onClick={() => props.closeModal()}>
                             Назад к главной страницы новостей
                         </button>

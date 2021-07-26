@@ -45,13 +45,13 @@ function App() {
                         <div className='main'>
                             <Switch>
                                 <Route exact path="/">
-                                    <Main/>
+                                    <Main />
                                 </Route>
                                 <Route path='/news/:id'>
                                     {Boolean(localStorage.getItem('token')) ? <NewsDetail/> : <Redirect to='../auth'/>}
                                 </Route>
                                 <Route path='/news'>
-                                    <News/>
+                                    <News />
                                 </Route>
                                 <Route path='/auth'>
                                     <Login/>
