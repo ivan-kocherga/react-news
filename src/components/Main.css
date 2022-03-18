@@ -1,200 +1,205 @@
-.main{
-    padding-bottom: 50px;
+.main {
+  padding-bottom: 50px;
 }
 
-.main-wrapper{
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-top: 30px;
+.main-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 30px;
 }
 
-.main__title{
-    margin-bottom: 50px;
+.main__title {
+  margin-bottom: 50px;
+  margin-left: 50px;
 }
 
-.main__title h1{
-    margin-bottom: 10px;
+.main__title h1 {
+  margin-bottom: 10px;
 }
 
-.slider__elem{
-    max-width: 400px !important;
-    padding: 0 25px;
+.slider__elem {
+  max-width: 400px !important;
+  padding: 0 25px;
 }
 
-.slider__elem img{
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 10px;
+.slider__elem img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
 
-.slider__elem-detail{
-    margin: 0 auto;
-    margin-top: 15px;
-    padding: 10px 5px;
-    width: 70%;
-    font-size: 14px;
-    cursor: pointer;
-    background: green;
-    border: none;
-    border-radius: 5px;
-    color: white;
+.slider__elem-detail {
+  margin: 0 auto;
+  margin-top: 15px;
+  padding: 10px 5px;
+  width: 70%;
+  font-size: 14px;
+  cursor: pointer;
+  background: green;
+  border: none;
+  border-radius: 5px;
+  color: white;
 }
 
-.slider__elem-detail:hover{
-    border: 1px solid black;
-    background: white;
-    color: black;
-    padding: 9px 4px;
+.slider__elem-detail:hover {
+  border: 1px solid black;
+  background: white;
+  color: black;
+  padding: 9px 4px;
 }
 
-.slick-slider{
-    max-width: 75%;
-    margin: 0 auto;
-    position: relative;
+.slick-slider {
+  max-width: 75%;
+  margin: 0 auto;
+  position: relative;
 }
 
-.info{
-    text-align: center;
+.info {
+  text-align: center;
 }
 
-
-
-
-
-
-
-.slick-next, .slick-prev {
-    font-size: 0;
-    line-height: 0;
-    position: absolute;
-    top: 30%;
-    display: block;
-    width: 20px;
-    height: 20px;
-    padding: 0;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-    cursor: pointer;
-    border: none;
+.slick-next,
+.slick-prev {
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  top: 30%;
+  display: block;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  cursor: pointer;
+  border: none;
 }
 
-.slick-next, .slick-next:focus, .slick-next:hover, .slick-prev, .slick-prev:focus, .slick-prev:hover {
-    color: transparent;
-    outline: none;
-    background: transparent;
+.slick-next,
+.slick-next:focus,
+.slick-next:hover,
+.slick-prev,
+.slick-prev:focus,
+.slick-prev:hover {
+  color: transparent;
+  outline: none;
+  background: transparent;
 }
 
 .slick-next {
-    right: -25px;
+  right: -25px;
 }
 
 .slick-prev {
-    left: -25px;
+  left: -25px;
 }
 
-.slick-next:before, .slick-prev:before {
-    font-family: slick;
-    font-size: 20px;
-    line-height: 1;
-    opacity: .75;
-    color: #fff;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+.slick-next:before,
+.slick-prev:before {
+  font-family: slick;
+  font-size: 20px;
+  line-height: 1;
+  opacity: 0.75;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .slick-next:before {
-    content: "\279C";
+  content: "\279C";
 }
 
 .slick-prev:before {
-    content: "\279C";
-    transform: rotate(90deg);
+  content: "\279C";
+  transform: rotate(90deg);
 }
 
-.slick-prev{
-    transform: rotate(180deg)
+.slick-prev {
+  transform: rotate(180deg);
 }
 
-.slick-prev:hover::before{
-    border-radius: 50%;
-    border: 1px solid #000;
-    padding: 4px;
+.slick-prev:hover::before {
+  border-radius: 50%;
+  border: 1px solid #000;
+  padding: 4px;
 }
 
-.slick-next:hover::before{
-    border-radius: 50%;
-    border: 1px solid #000;
-    padding: 4px;
+.slick-next:hover::before {
+  border-radius: 50%;
+  border: 1px solid #000;
+  padding: 4px;
 }
 
-.slick-next:before, .slick-prev:before {
-    color: #000;
-}
-
-.slick-dots {
-    position: absolute;
-    bottom: -35px;
-    display: block;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    text-align: center;
+.slick-next:before,
+.slick-prev:before {
+  color: #000;
 }
 
 .slick-dots {
-    margin-left: 0;
+  position: absolute;
+  bottom: -35px;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.slick-dots {
+  margin-left: 0;
 }
 
 .slick-dots li {
-    position: relative;
-    display: inline-block;
-    margin: 0 5px;
-    padding: 0;
+  position: relative;
+  display: inline-block;
+  margin: 0 5px;
+  padding: 0;
 }
 
-.slick-dots li, .slick-dots li button {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
+.slick-dots li,
+.slick-dots li button {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }
 
 .slick-dots li button {
-    font-size: 0;
-    line-height: 0;
-    display: block;
-    padding: 5px;
-    color: transparent;
-    border: 0;
-    outline: none;
-    background: transparent;
+  font-size: 0;
+  line-height: 0;
+  display: block;
+  padding: 5px;
+  color: transparent;
+  border: 0;
+  outline: none;
+  background: transparent;
 }
 
-.slick-dots li, .slick-dots li button {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
+.slick-dots li,
+.slick-dots li button {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }
 
 .slick-dots li.slick-active button:before {
-    opacity: .75;
-    color: #000;
+  opacity: 0.75;
+  color: #000;
 }
 
 .slick-dots li button:before {
-    font-family: slick;
-    font-size: 30px;
-    line-height: 30px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 20px;
-    height: 20px;
-    content: "\2022";
-    text-align: center;
-    opacity: .25;
-    color: #000;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  font-family: slick;
+  font-size: 30px;
+  line-height: 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  content: "\2022";
+  text-align: center;
+  opacity: 0.25;
+  color: #000;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
