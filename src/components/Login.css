@@ -1,67 +1,70 @@
-.auth{
-    padding-top: 50px;
-    display: flex;
+.auth {
+  padding-top: 50px;
+  display: flex;
 }
 
-.auth-wrapper{
-    max-width: 1200px;
-    margin: 0 auto;
+.auth-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.auth__email, .auth__password{
-    display: flex;
-    flex-direction: column;
-    margin: 20px 0;
-    position: relative;
+.auth__email,
+.auth__password {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+  position: relative;
 }
 
-.auth__email span, .auth__password span{
-    margin-bottom: 5px;
+.auth__email span,
+.auth__password span {
+  margin-bottom: 5px;
 }
 
-.auth__email input, .auth__password input{
-    max-width: 200px;
+.auth__email input,
+.auth__password input {
+  max-width: 200px;
 }
 
-.auth__password-btnPassword span{
-    cursor: pointer;
-    color: green;
-    font-size: 13px;
-
+.auth__password-btnPassword span {
+  cursor: pointer;
+  color: green;
+  font-size: 13px;
 }
 
-.auth__password-btnPassword span:hover{
-    text-decoration: underline;
+.auth__password-btnPassword span:hover {
+  text-decoration: underline;
 }
 
-.auth__header{
-    margin-bottom: 10px;
+.auth__header {
+  margin-bottom: 10px;
 }
 
-.auth__submit{
-    margin-top: 15px;
+.auth__submit {
+  margin-top: 15px;
 }
 
-.auth__submit{
-    border: none;
-    background-color: rgb(53, 110, 233);
-    border-radius: 5px;
-    padding: 10px 15px;
-    color: #fff;
-    cursor: pointer;
+.auth__submit {
+  border: none;
+  background-color: rgb(53, 110, 233);
+  border-radius: 5px;
+  padding: 10px 15px;
+  color: #fff;
+  cursor: pointer;
 }
-.error-password, .error-email{
-    position: absolute;
-    font-size: 12px;
-    top: 0;
-    left: 0;
-    color: red;
-}
-
-.error-email{
-    top: 52px
+.error-password,
+.error-email {
+  position: absolute;
+  font-size: 12px;
+  top: 0;
+  left: 0;
+  color: red;
 }
 
-.error-password{
-    top: 70px;
+.error-email {
+  top: 52px;
+}
+
+.error-password {
+  top: 70px;
 }
